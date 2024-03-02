@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  
+
+  <style>
+  body {
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'Lato', sans-serif;
+    
+  }
+
+  .background {
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.image-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.opening-animation {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.opening-animation h1 {
+  font-size: 6rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fade-in 2s ease-in-out forwards, pulse 5s ease-in-out infinite;
+}
+
+.progress-bar-container {
+  width: 300px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: green;
+  animation: loading 2s ease-in-out forwards;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.nav-link i {
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover i {
+  transform: translateY(-5px);
+}
+
+.col-12 h2, .col-12 p {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #3b3b3b;
+  margin: 0;
+  padding: 0;
+}
+
+.col-12 h2 {
+  font-size: 36px;
+}
+
+.col-12 p {
+  font-size: 18px;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate__bounceIn {
+  animation-name: bounceIn;
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+/* Stile per le card */
+.my-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Animazione quando si fa hover sulle card */
+.my-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Animazione con design di alto livello */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.my-card {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.my-card:nth-child(odd) {
+  animation-name: slideInLeft;
+}
+
+.my-card:nth-child(even) {
+  animation-name: slideInRight;
+}
+
+.card-body {
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-body:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  position: relative;
+  animation: move 3s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 10px;
+  }
+}
+
+.alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  animation: alert-animation 0.5s ease-out forwards;
+}
+
+.alert-box h2 {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+}
+
+.alert-box p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.alert-box button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.alert-box button:hover {
+  background-color: #0062cc;
+}
+
+@keyframes alert-animation {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+a.navbar-brand img {
+  width: 50px; /* Larghezza dell'immagine del logo */
+  height: 50px; /* Altezza dell'immagine del logo */
+}
+.bi-lightbulb:hover {
+  filter: drop-shadow(0 0 10px #ffcc00);
+}
+
+
+
+#alertBox p {
+  margin: 0;
+}
+
+#alertBox button {
+  margin-top: 20px;
+}
+
+
+</style>
+  
+
+</head>
+
+<div class="opening-animation">
+  <h1>
+    <div style="width: 300px; height: 300px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+      <img src="./imgs/ICON.png" alt="Logo" style="max-height: 100%; max-width: 100%;">
+    </div>
+  </h1>
+  <div class="progress-bar-container">
+    <div class="progress-bar"></div>
+  </div>
+  <h2 class="text-center mt-3" style="font-family: 'Bauhaus 93', cursive; color: blue;">Porcelli Fabrizio</h2>
+</div>
+
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
+  <nav class="navbar navbar-expand-lg bg-light sticky-top animate__animated animate__fadeIn">
+    <div class="d-flex collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-4">
+          <a class="nav-link text-white btn btn-dark d-flex flex-column align-items-center" href="#home">
+            <i class="bi bi-house"></i>
+            <span class="mt-1">Home</span>
+          </a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link text-black d-flex flex-column align-items-center" href="#servizi">
+            <i class="bi bi-lightbulb"></i>
+            <span class="mt-1">Servizi</span>
+          </a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link text-black d-flex flex-column align-items-center" href="#contatti">
+            <i class="bi bi-telephone-fill"></i>
+            <span class="mt-1">Contatti</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section class="container-fluid background" id="home">
+    <div class="container pt-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 mx-auto">
+          <div class="row align-items-center">
+            <div class="col-12 text-center">
+              <div class="my-4">
+                <div class="row align-items-center">
+                  <div class="col-md-10">
+                    <h1 class="mt-4 animate__animated animate__bounceIn review-text" id="review" onmouseover="changeColor()" data-aos="fade-up" data-aos-duration="1000" style="font-size: 3rem; text-shadow: 2px 2px 0px #000; color: #fff; letter-spacing: 0.1rem;">Porcelli Fabrizio</h1>
+                  </div>
+                  <div class="col-md-2 text-right">
+                    <a class="navbar-brand animated bounceInDown" href="#">
+                      <img src="./imgs/ICON.png" alt="Logo" style="height: 100px; width: 100px; cursor: pointer; " onclick="showWelcomeMessage()">
+                    </a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="d-flex justify-content-center">
+      <div class="container">
+        <h2 class="text-center mb-5 display-1 pt-5 animated bounceInDown" id="servizi">I nostri servizi</h2>
+        <div class="card-group pt-3">
+          <div class="card mb-3 mx-3 my-card">
+            <img src="./imgs/impianto-elettrico-a-norma.jpg" class="card-img-top img-fluid card-img-zoom" alt="..." style="object-fit: cover; height: 180px;">
+            <div class="card-body border border-3">
+              <h5 class="d-flex card-title justify-content-center">Assistenza clienti</h5>
+              <p class="card-text">Segue la realizzazione di impianti elettrici civili di nuove abitazioni e la ristrutturazione di impianti fuori norma.</p>
+              <ul class="card-text">
+              </ul>
+            </div>
+          </div>
+          <div class="card mb-3 mx-3 my-card">
+            <img src="./imgs/elettrcista-pronto-intervento.jpg" class="card-img-top img-fluid card-img-zoom" alt="..." style="object-fit: cover; height: 180px;">
+            <div class="card-body border border-3">
+              <h5 class="d-flex card-title justify-content-center">Servizi</h5>
+              <p class="card-text">Questi sono i servizi offerti:</p>
+              <ul class="card-text">
+                <li>Impianti elettrici</li>
+                <li>Impianti tv</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card mb-3 mx-3 my-card">
+            <img src="./imgs/drone.jpg" class="card-img-top img-fluid card-img-zoom" alt="..." style="object-fit: cover; height: 180px;">
+            <div class="card-body border border-3">
+              <h5 class="d-flex card-title justify-content-center">Telepilota automunito</h5>
+              <p class="card-text">Su richiesta, è possibile utilizzare il nostro drone per lavori di ispezione, monitoraggio e rilievo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center pt-5">
+      <div class="container">
+        <h2 class="text-center mb-5 display-1 pt-5 animated bounceInDown " id="servizi">I nostri numeri</h2>
+        <div class="d-flex justify-content-center">
+          <div class="container">
+            <div class="card-group pt-3">
+              <div class="card mb-3 mx-3 my-card">
+                <div class="card-body border border-3">
+                  <h5 class="d-flex card-title justify-content-center">Oltre 20 anni di attività</h5>
+                </div>
+              </div>
+              <div class="card mb-3 mx-3 my-card">
+                <div class="card-body border border-3">
+                  <h5 class="d-flex card-title justify-content-center">Più di 300 contratti di manutenzione</h5>
+                </div>
+              </div>
+              <div class="card mb-3 mx-3 my-card">
+                <div class="card-body border border-3">
+                  <h5 class="d-flex card-title justify-content-center">Quasi 2,000 installazioni effettuate</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+  
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold mb-3">Richiedi un preventivo personalizzato</h2>
+            <p class="text-muted">Compila il form sottostante e riceverai al più presto una risposta dal nostro team.</p>
+          </div>
+          <form action="javascript:void(0);" method="post" onsubmit="window.location.href='mailto:destinatario@gmail.com?subject=' + encodeURIComponent(document.getElementById('subject').value) + '&body=' + encodeURIComponent(document.getElementById('body').value)">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Oggetto</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Messaggio</label>
+              <textarea class="form-control" id="body" name="body" rows="5" required></textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
+              <label class="form-check-label" for="privacy">Ho letto e accetto il trattamento dei dati personali</label>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-dark btn-lg w-100">Invia richiesta</button>
+            </div>
+          </form>
+          <p class="text-muted">Cliccando su "Invia richiesta" confermi di aver letto e accettato il <a href="/privacy-policy">trattamento dei dati personali</a>.</p>
+        </div>
+      </div>
+    </div>
+
+ <!-- Recensione 1 -->
+<h2 class="text-center mb-5 display-1 pt-5 animated bounceInDown" id="servizi">Il nostro impiego</h2>
+<div class="bg-dark text-white py-5 pt-5">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="./imgs/Formazione-professionale-per-Elettricista-Industria-Civile-1.jpg" class="img-fluid mb-3" alt="Elettricista" style="width: 100%;">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Un professionista affidabile e competente</h3>
+        <p>"Ho contattato questo elettricista per un intervento urgente e devo dire che sono rimasto molto soddisfatto del suo lavoro. Si è dimostrato un professionista affidabile e competente, in grado di risolvere il problema in modo rapido ed efficiente. Consiglio vivamente questo elettricista a chiunque abbia bisogno di un servizio di qualità."</p>
+        <p class="text-end">- Utente Anonimo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recensione 2 -->
+<div class="bg-dark text-white py-5 pt-5">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="./imgs/Dieci-regole-vitali-per-la-sicurezza-degli-elettricisti.webp" class="img-fluid mb-3" alt="Elettricista" style="width: 100%;">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Servizio eccellente e prezzi competitivi</h3>
+        <p>"Ho deciso di affidarmi a questo elettricista per la mia nuova casa e devo dire che sono rimasto molto soddisfatto del suo servizio. Si è dimostrato molto disponibile nel consigliarmi le soluzioni migliori per le mie esigenze, offrendomi un servizio eccellente a prezzi molto competitivi. Consiglio vivamente questo elettricista a chiunque cerchi un servizio di qualità a prezzi accessibili."</p>
+        <p class="text-end">- Utente Anonimo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recensione 3 -->
+<div class="bg-dark text-white py-5 pt-5">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="./imgs/FB-elettricisti_blog.jpg" class="img-fluid mb-3" alt="Elettricista" style="width: 100%;">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Soluzione rapida ed efficiente per un guasto urgente</h3>
+        <p>"Ho dovuto chiamare questo elettricista per un guasto urgente nella mia casa e devo dire che sono rimasto piacevolmente sorpreso dal suo servizio rapido ed efficiente. Non solo ha risolto il problema in modo tempestivo, ma ha anche verificato e riparato altri eventuali problemi elettrici presenti nella mia casa. Il suo servizio è stato professionale e cordiale, e il prezzo è stato molto ragionevole. Consiglio vivamente questo elettricista a chiunque abbia bisogno di un servizio affidabile e di qualità."</p>
+        <p class="text-end">- Utente Anonimo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    <h2 class="text-center mb-5 display-1 pt-5 animated bounceInDown" id="contatti">Per info:</h2>
+    <div class="footer-basic text-animate">
+      <footer>
+        <div class="row">
+          <div class="col-sm-4 mx-auto text-center">
+            <h4>Sede</h4>
+            <p>Via Jacopo durandi 27<br>13100 Vercelli</p>
+          </div>
+          <div class="col-sm-4 mx-auto text-center">
+            <h4>Recapiti</h4>
+            <p>Telefono: +393474659282<br>fabrizio.porcelli75@gmail.com</p>
+          </div>
+          <div class="col-sm-4 mx-auto text-center">
+            <h4>Orari di apertura</h4>
+            <p>Tutti i giorni dalle 9 alle 19<br>Sabato e domenica chiuso</p>
+          </div>
+        </div>
+        <ul class="list-inline text-center text-black">
+          <li class="list-inline-item"><a href="#">Home</a></li>
+          <li class="list-inline-item"><a href="#">Servizi</a></li>
+          <li class="list-inline-item"><a href="#">Contatti</a></li>
+          <li class="list-inline-item"><a href="https://web.whatsapp.com/"><i class="bi bi-whatsapp"></i></a></li>
+        </ul>
+      </footer>
+    </div>
+    
+
+    <script>
+      // seleziona il container-fluid
+      const containerFluid = document.querySelector('.background');
+      setTimeout(() => {
+  document.querySelector('.opening-animation').style.display = 'none';
+}, 2000);
+        
+      // crea l'animazione
+      const animazione = gsap.to(containerFluid, {
+        duration: 2,
+        backgroundImage: "url('./imgs/lampadina.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        ease: "power2.inOut",
+        height: "600px",
+      });
+
+      gsap.from(".card", {
+        duration: 2,
+        opacity: 0,
+        y: 50,
+        stagger: 0.5
+      });
+
+      gsap.from(".nav-link", {
+    duration: 1,
+    opacity: 0,
+    y: -50,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
+
+  // create a timeline
+var tl = gsap.timeline();
+
+
+
+const img = document.querySelector('img');
+  const listItems = document.querySelectorAll('li');
+  const lead = document.querySelector('p.lead');
+  
+  // Animazione per l'immagine
+  img.style.transform = 'translateX(-50%)';
+  img.style.opacity = '0';
+  img.style.transition = 'transform 1s ease, opacity 1s ease';
+  setTimeout(() => {
+    img.style.transform = 'translateX(0)';
+    img.style.opacity = '1';
+  }, 500);
+  
+  // Animazione per gli elementi della lista
+  listItems.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-50%)';
+    item.style.transition = `opacity 1s ease, transform 1s ease ${index * 0.2}s`;
+    setTimeout(() => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateX(0)';
+    }, 500);
+  });
+  
+  // Animazione per il testo
+  lead.style.opacity = '0';
+  lead.style.transform = 'translateY(-50%)';
+  lead.style.transition = 'opacity 1s ease, transform 1s ease';
+  setTimeout(() => {
+    lead.style.opacity = '1';
+    lead.style.transform = 'translateY(0)';
+  }, 800);
+
+  // Aggiungiamo la classe 'animate' al container
+const container = document.querySelector('.bg-dark');
+container.classList.add('animate');
+
+// Creiamo l'animazione con GSAP
+gsap.from('.animate', {
+  duration: 1.5,
+  opacity: 0,
+  y: -100,
+  ease: 'power2.out'
+});
+
+
+// Animazione della navbar
+gsap.to(navbar, {
+  duration: 1,  // durata dell'animazione in secondi
+  backgroundColor: '#00ff00',  // colore di sfondo verde
+  ease: 'power2.inOut'  // tipo di easing dell'animazione
+});
+
+const openingAnimation = document.querySelector('.opening-animation');
+
+// Rimuovi l'elemento dell'animazione dal DOM dopo che l'animazione è stata eseguita
+function removeOpeningAnimation() {
+  openingAnimation.remove();
+}
+
+// Aggiungi un listener per l'evento di completamento dell'animazione
+openingAnimation.addEventListener('animationend', removeOpeningAnimation, { once: true });
+
+AOS.init();
+
+function showWelcomeMessage() {
+  var alertBox = document.createElement('div');
+  alertBox.innerHTML = "Benvenuto sul sito<br>Porcelli Fabrizio Antennista<br>Sotto Qualificato presso Eurosatellite Centro di Formazione Professionale";
+  alertBox.classList.add('alert-box');
+  document.body.appendChild(alertBox);
+  setTimeout(function() {
+    alertBox.parentNode.removeChild(alertBox);
+  }, 3000);
+}
+
+var logo = document.querySelector('a.navbar-brand img');
+logo.addEventListener('mouseover', showWelcomeMessage);
+
+function changeColor() {
+      var randomColor = Math.floor(Math.random()*16777215).toString(16);
+      document.getElementById("review").style.color = "#" + randomColor;
+    }
+
+
+
+    </script>
+    
+
+
+    </body>
+</html>
+    
+
+    
